@@ -24,11 +24,16 @@
 
 
     <!-- ******** main code for the project ******** -->
-    <div class="container">
+    <div class="container main">
         <form action="" class="new_to-do">
             <input type="text" name="todo" id="todo-list" placeholder="New To-Do">
             <input type="button" value="Add +" id="add">
         </form>
+        <div class="btns">
+            <button class="btn" id="history">History</button>
+            <button class="btn" id="current">Current</button>
+        </div>
+
         <div class="todo-holder">
             <!-- <div class="todo-items">
                 <p>Go to school</p>
@@ -37,16 +42,17 @@
         </div>
     </div>
 
-    <div class="container">
+    <!-- <div class="container history">
         <form action="" class="new_to-do">
             <input type="button" value="Show Done History" id="done-history">
         </form>
         <div class="todo-holder-done">
-            <!-- <div class="todo-items-done">
-                <p>Go to school</p>
-            </div> -->
+            <div class="todo-items-done">
+                <p>For Testing<span id='complete'>Completed</span></p>
+            </div>
         </div>
-    </div>
+    </div> -->
+
 
 
     <script src="./main.js"></script>

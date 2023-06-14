@@ -19,6 +19,9 @@ const doneData = []
 
 function rerander(){
     data.forEach((todo)=>{
+        current.classList.add('active')
+        doneHistory.classList.remove('active')
+
         todoHolder.innerHTML += `<div class="todo-items">
             <p>${todo.title}</p>
             <button class="done">Done</button>
@@ -64,18 +67,42 @@ add.addEventListener('click', addItems);
 
 function reranderHistory(){
     doneData.forEach((todo)=>{
-        todoHolderDone.innerHTML += `<div class="todo-items-done">
-            <p>${todo.title}</p>
+        doneHistory.classList.add('active')
+        current.classList.remove('active')
+
+        // todoHolderDone.innerHTML += `<div class="todo-items-done">
+        todoHolder.innerHTML += `<div class="todo-items-done">
+            <p>${todo.title}<span id='complete'>Completed</span></p>
         </div>`
     })
 }
 
-const doneHistory = document.querySelector('#done-history');
+// const doneHistory = document.querySelector('#done-history');
+const doneHistory = document.querySelector('#history');
 
 doneHistory.addEventListener('click', ()=>{
-    todoHolderDone.innerHTML = '';
+    doneHistory.classList.add('active')
+    current.classList.remove('active')
+    // todoHolderDone.innerHTML = '';
+    todoHolder.innerHTML = '';
     reranderHistory();
 })
+
+
+const current = document.querySelector('#current');
+
+current.addEventListener('click', ()=>{
+    // current.style.backgroundColor = 'tomato';
+    // current.style.borderBottom = '0'
+    // current.style.color = 'white'
+    current.classList.add('active')
+    doneHistory.classList.remove('active')
+
+    todoHolder.innerHTML = ''; //for clear the todoHolder before rerander using forEach
+    rerander();
+    clickDone();
+})
+
 
 /* ******************************************************* */
 /* ******************************************************* */
